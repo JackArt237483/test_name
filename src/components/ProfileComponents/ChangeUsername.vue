@@ -1,14 +1,25 @@
 <template>
-  <div>
-    <h2 class="text-2xl font-bold mb-4">Change Username</h2>
-    <form @submit.prevent="changeUsername" class="space-y-4">
+  <div class="bg-white shadow-lg rounded-lg p-8 flex-1">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Change Username</h2>
+    <form @submit.prevent="changeUsername" class="space-y-6">
       <div>
-        <label for="newUsername" class="block text-gray-700">New Username:</label>
-        <input type="text" id="newUsername" v-model="newUsername" required class="border p-2 rounded w-full">
+        <label for="newUsername" class="block text-sm font-medium text-gray-700">New Username:</label>
+        <input type="text" id="newUsername" v-model="newUsername" required
+               class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm
+                      focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm
+                      transition duration-300 ease-in-out hover:shadow-md">
       </div>
-      <button type="submit" class="bg-blue-600 text-white p-2 rounded">Change Username</button>
+      <button type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 border
+                     border-transparent rounded-md shadow-sm text-sm font-medium
+                     focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                     transition duration-300 ease-in-out">
+        Change Username
+      </button>
     </form>
-    <div v-if="success" class="text-green-500 mt-4">{{ success }}</div>
+    <div v-if="success" class="text-green-500 mt-4 text-center">
+      {{ success }}
+    </div>
   </div>
 </template>
 
@@ -49,5 +60,11 @@ export default {
 </script>
 
 <style scoped>
-/* Add your styles here */
+input {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+button {
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 </style>
